@@ -1,22 +1,22 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f4f4f5;
-  --foreground: #18181b;
+  --background: #fbf3ec;
+  --foreground: #2b211c;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  /* 영문은 Geist, 한글은 시스템 고딕 */
-  --font-sans: var(--font-geist-sans), "Apple SD Gothic Neo", "Malgun Gothic",
-    "Noto Sans KR", sans-serif;
+  /* 한글·영문 모두 Pretendard */
+  --font-sans: "Pretendard Variable", Pretendard, -apple-system,
+    BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #000000;
-    --foreground: #f4f4f5;
+    --background: #1c1512;
+    --foreground: #f6ece4;
   }
 }
 
@@ -24,4 +24,26 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+  word-break: keep-all;
+}
+
+/* 따뜻한 톤의 부드러운 그라데이션 배경 */
+.warm-backdrop {
+  background:
+    radial-gradient(60% 45% at 15% 10%, #ffd9c2 0%, transparent 70%),
+    radial-gradient(55% 40% at 90% 25%, #ffe8c7 0%, transparent 70%),
+    radial-gradient(70% 50% at 50% 100%, #f6cfcf 0%, transparent 70%),
+    linear-gradient(180deg, #fdf6ef 0%, #fbeee4 100%);
+  background-attachment: fixed;
+}
+
+@media (prefers-color-scheme: dark) {
+  .warm-backdrop {
+    background:
+      radial-gradient(60% 45% at 15% 10%, #4a2a20 0%, transparent 70%),
+      radial-gradient(55% 40% at 90% 25%, #43321f 0%, transparent 70%),
+      radial-gradient(70% 50% at 50% 100%, #46242a 0%, transparent 70%),
+      linear-gradient(180deg, #1f1714 0%, #1a1311 100%);
+    background-attachment: fixed;
+  }
 }
